@@ -409,5 +409,6 @@ def main():
                     hp2.swap_back()
         pygame.display.flip()
         clock.tick(fps)
-        
-main()
+	    
+if __name__ = '__main__':
+	main()
