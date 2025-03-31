@@ -13,7 +13,7 @@ class enemy(pygame.sprite.Sprite):
     def __init__(self, x, y):
             pygame.sprite.Sprite.__init__(self)
             self.images = []
-            img = pygame.image.load("Enemy.png").convert_alpha()
+            img = pygame.image.load("enemy.png").convert_alpha()
             img.set_colorkey((255, 255 ,255))
             self.images.append(img)
             self.image = self.images[0]

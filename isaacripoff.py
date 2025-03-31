@@ -98,7 +98,7 @@ def boss_spawning():
     boss_list.add(boss1)
 
 def boss_player_collision():
-    if pygame.sprite.spritecollide(player, boss_list, False, False):
+    if pygame.sprite.spritecollide(player, boss_list, False, None):
         for i in boss_list:
             if i.rect.x < player.rect.x and i.rect.y < player.rect.y:
                 player.rect.x += 75
@@ -200,7 +200,7 @@ def map_change():
 
 
 def enemy_player_collision():
-    if pygame.sprite.spritecollide(player, enemies_list, False, False):
+    if pygame.sprite.spritecollide(player, enemies_list, False, None):
             for i in enemies_list:
                 if i.rect.x > player.rect.x and i.rect.y > player.rect.y:
                     i.rect.x += 75
@@ -311,7 +311,7 @@ def main():
         if lifes == 0:
             running = False
         
-        if pygame.sprite.spritecollide(player, enemies_list, False, False):
+        if pygame.sprite.spritecollide(player, enemies_list, True, None):
             if lifes == 5:
                 hp5.swap_image("empty")
             if lifes == 4:
@@ -321,7 +321,7 @@ def main():
             if lifes == 2:
                 hp2.swap_image("empty")
 
-        if pygame.sprite.spritecollide(player, boss_list, False, False):
+        if pygame.sprite.spritecollide(player, boss_list, True, None):
             if lifes == 5:
                 hp5.swap_image("empty")
             if lifes == 4:
@@ -342,7 +342,7 @@ def main():
         for i in boss_list:
             i.following()
         world.blit(backdrop, backdropbox) #draws backdrop file background onto the backdropbox (game rect)
-        if pygame.sprite.spritecollide(player, enemies_list, False, False):
+        if pygame.sprite.spritecollide(player, enemies_list, False, None):
             screen_flash_group.draw(world)
         player_list.draw(world)
         enemies_list.draw(world)
